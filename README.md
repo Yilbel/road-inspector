@@ -166,6 +166,48 @@ olarak GPS'siz veriyle devam eder; bu durumda `9_make_map.py`
   kullanmak pratikte yeterli ve çok daha hızlıdır.
 
 
+## Hızlı Başlangıç (Tek Komut)
+
+Kurulum tamamlandıktan sonra (bkz. yukarıdaki kurulum adımları), tüm pipeline'ı
+tek komutla çalıştırabilirsin — kare çıkarma, tespit, tekilleştirme, GPS
+eşleştirme (varsa) ve rapor üretimi otomatik olarak sırayla yapılır:
+
+```powershell
+python run_pipeline.py --video input\video.mp4
+```
+
+Video çözünürlüğünü elle belirtmene gerek yok, script otomatik tespit eder.
+
+### Ek seçenekler
+
+| Parametre | Açıklama | Varsayılan |
+|---|---|---|
+| `--fps` | Saniyede kaç kare örneklenecek | `2` |
+| `--no-gps` | GPS çıkarma/eşleştirme adımlarını atla | (denenir) |
+| `--no-map` | HTML harita üretimini atla | (üretilir) |
+| `--frames` | Kare çıktı klasörü | `output/frames` |
+| `--out` | Rapor çıktı klasörü | `output/report` |
+
+Örnek:
+```powershell
+python run_pipeline.py --video input\video.mp4 --fps 3 --no-gps
+```
+
+Çalıştırma bitince şu dosyalar hazır olur:
+- `output/report/belediye_raporu_final.xlsx` — Excel raporu (Özet / Yol Hasarı Önceliği / Tüm Nesneler sekmeleri)
+- `output/report/isaretli_kareler/` — her tespit için işaretli fotoğraf
+- `output/report/harita.html` — etkileşimli harita (çift tıklayıp tarayıcıda aç)
+
+Bir adım hata verirse pipeline orada net bir mesajla durur; GPS ve harita
+adımları opsiyonel olduğu için onlarda hata olursa sadece o adım atlanır,
+pipeline'ın geri kalanı çalışmaya devam eder.
+
+---
+
+*(Not: Bu bölümü README'nin başına, "Adım Adım Kurulum" bölümünden hemen sonra
+eklemen önerilir — böylece kurulumu tamamlayan biri manuel adımlara değil,
+direkt tek komuta geçebilir.)*
+
 ## Lisans
 
 Bu proje **GNU Affero General Public License v3.0 (AGPL-3.0)** altında lisanslanmıştır.
