@@ -1,0 +1,21 @@
+# Sanal ortam
+venv/
+
+# Girdi videoları (büyük, kişisel/hassas olabilir)
+input/*
+!input/.gitkeep
+
+# İndirilen büyük model dosyaları (README'deki talimatla yeniden indirilebilir)
+models/*.pt
+yolov8n.pt
+
+# Üretilen çıktılar (kareler, tespitler, raporlar -- tekrar üretilebilir)
+output/
+
+# Python önbellek dosyaları
+__pycache__/
+*.pyc
+
+# Hugging Face / ultralytics geçici dosyaları
+*.cache/
+.cache/
