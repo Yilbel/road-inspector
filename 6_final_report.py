@@ -67,24 +67,30 @@ def build_excel(df: pd.DataFrame, out_dir: str):
         if len(road_damage) > 0 else pd.DataFrame(columns=["oncelik", "adet"])
     )
 
-    display_df = df[[
+    display_cols = [
         "kategori", "oncelik", "gorulme_sayisi", "en_yuksek_guven",
         "ilk_gorulme_sn", "son_gorulme_sn", "temsili_kare"
-    ]].sort_values(["kategori", "oncelik"])
+    ]
+    has_gps = "enlem" in df.columns and "boylam" in df.columns
+    if has_gps:
+        display_cols += ["enlem", "boylam", "google_maps"]
+
+    display_df = df[display_cols].sort_values(["kategori", "oncelik"])
 
     with pd.ExcelWriter(excel_path, engine="openpyxl") as writer:
         summary.to_excel(writer, sheet_name="Özet", index=False)
         road_damage_priority.to_excel(writer, sheet_name="Yol Hasarı Önceliği", index=False)
         display_df.to_excel(writer, sheet_name="Tüm Nesneler", index=False)
 
-    print(f"Excel raporu -> {excel_path}")
+    print(f"Excel raporu -> {excel_path}" + (" (konum bilgisiyle)" if has_gps else ""))
     return summary
 
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--frames", default="output/frames")
-    parser.add_argument("--detections", default="output/detections/tespitler_tekil.csv")
+    parser.add_argument("--detections", default="output/detections/tespitler_gps.csv",
+                         help="GPS eklenmiş dosya varsa onu, yoksa tespitler_tekil.csv'yi kullan")
     parser.add_argument("--out", default="output/report")
     args = parser.parse_args()
 
