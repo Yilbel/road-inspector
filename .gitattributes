@@ -1,0 +1,24 @@
+# Metin dosyaları için satır sonu normalizasyonu (Windows/Mac/Linux arası tutarlılık)
+* text=auto eol=lf
+
+# Python dosyaları
+*.py text eol=lf
+
+# Windows'a özgü betikler (varsa) CRLF kalsın
+*.bat text eol=crlf
+*.ps1 text eol=crlf
+
+# Belgeler
+*.md text eol=lf
+*.txt text eol=lf
+.gitignore text eol=lf
+
+# Binary dosyalar - asla satır sonu dönüşümü yapılmasın
+*.pt binary
+*.jpg binary
+*.jpeg binary
+*.png binary
+*.mp4 binary
+*.xlsx binary
+*.gpx binary
+*.kml binary

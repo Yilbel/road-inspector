@@ -164,3 +164,26 @@ olarak GPS'siz veriyle devam eder; bu durumda `9_make_map.py`
   değer hızlanma sağlanır; tam video (30fps, her kareyi analiz)
   yerine örneklenmiş kare akışı (`1_extract_frames.py` ile 2fps)
   kullanmak pratikte yeterli ve çok daha hızlıdır.
+
+
+## Lisans
+
+Bu proje **GNU Affero General Public License v3.0 (AGPL-3.0)** altında lisanslanmıştır.
+
+Bunun nedeni, kullanılan tespit modellerinin (Ultralytics YOLOv8 tabanlı) bu lisans
+altında dağıtılmasıdır. AGPL-3.0'ın temel şartı: bu yazılımı (değiştirilmiş haliyle dahi)
+bir ağ üzerinden (örneğin bir web servisi olarak) kullanıma sunan herkesin, kaynak kodunu
+da erişilebilir şekilde sunması gerekir.
+
+Bu proje zaten tamamen açık kaynak olduğu ve kaynak kodu bu depoda herkese açık şekilde
+sunulduğu için bu şart karşılanmış durumdadır.
+
+Tam lisans metni için bkz. [`LICENSE`](./LICENSE) dosyası veya
+https://www.gnu.org/licenses/agpl-3.0.txt
+
+### Kullanılan modeller ve lisansları
+| Model | Kaynak | Lisans |
+|---|---|---|
+| YOLOv8n (trafik ışığı, dur tabelası) | Ultralytics | AGPL-3.0 |
+| Yol hasarı tespiti | oracl4/RoadDamageDetection (RDD2022) | AGPL-3.0 |
+| Trafik tabelası tespiti | nezahatkorkmaz/traffic-sign-detection | AGPL-3.0 |
