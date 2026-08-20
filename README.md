@@ -110,6 +110,9 @@ python 8_join_gps.py
 
 # 5) Final Excel raporu + işaretli görseller
 python 6_final_report.py
+
+# 6) (Opsiyonel, GPS varsa) Etkileşimli HTML harita
+python 9_make_map.py
 ```
 
 Video çözünürlüğünü bilmiyorsanız:
@@ -118,13 +121,20 @@ python -c "import cv2; cap = cv2.VideoCapture('input/video.mp4'); print(int(cap.
 ```
 
 GPS adımlarını (4. adım) atlarsanız `6_final_report.py` otomatik
-olarak GPS'siz veriyle devam eder.
+olarak GPS'siz veriyle devam eder; bu durumda `9_make_map.py`
+çalışmaz (konum verisi gerektirir).
 
 **Çıktılar:**
 - `output/report/belediye_raporu_final.xlsx` — Özet / Yol Hasarı
   Önceliği / Tüm Nesneler (varsa Google Maps linkleriyle) sekmeleri
 - `output/report/isaretli_kareler/` — her benzersiz nesne için
   kutucuklu, öncelik renkli bir fotoğraf
+- `output/report/harita.html` — tek dosyalık, çift tıklayınca
+  tarayıcıda açılan etkileşimli harita (fotoğraflar dosyanın içinde
+  gömülü, internet gerekmez). Belediyeye göndermek için Excel'den
+  daha kullanışlı: renkli iğneler (kırmızı=yüksek öncelik,
+  turuncu=orta, açık kırmızı=düşük, mavi=bilgi), tıklayınca fotoğraf
+  + detay açılır.
 
 ---
 
