@@ -3,7 +3,7 @@
 Araç videosundan otomatik olarak **çukur/çatlak, trafik ışığı, trafik
 tabelası** tespiti yapar; GPS verisi varsa (GoPro/aksiyon kamerası
 videolarında sıkça bulunur) her tespidi haritada işaretlenebilir bir
-konuma bağlar. Belediyeye sunulabilecek Excel raporu + işaretli
+konuma bağlar. Sunulabilecek Excel raporu + işaretli
 fotoğraflar üretir.
 
 Kendi model eğitmiyoruz -- açık kaynak, hazır eğitilmiş YOLOv8
